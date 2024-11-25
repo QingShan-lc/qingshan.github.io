@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>寻人</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* 浅蓝色背景 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+            color: #333; /* 文本颜色 */
+            margin: 0;
+            padding: 20px;
+            text-align: center; /* 居中对齐 */
+        }
+        h1 {
+            color: #333; /* 标题颜色 */
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745; /* 绿色背景 */
+            color: white; /* 按钮文字颜色 */
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838; /* 鼠标悬停时的背景颜色 */
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>确认一下是不是我要找的人，别介意哈</h1>
+    <p>请回答问题：你是否穿过一件棕色的大衣，里面是纯白色的毛衣，穿过一件红色的秋衣并有一瓶蓝色的眼药水？（注：答案只有是或不是，输入“是”的话能进入第二个页面，不是的话就进不去或者其他字也进不去）</p>
+    <form id="questionForm">
+        <input type="text" id="answer" placeholder="输入你的答案">
+        <button type="button" onclick="checkAnswer()">提交</button>
+    </form>
+    <p id="feedback"></p>
+
+    <script>
+        function checkAnswer() {
+            var answer = document.getElementById('answer').value;
+            if (answer.toLowerCase() === '是') {
+                document.getElementById('feedback').innerText = '回答正确！';
+                setTimeout(function() {
+                    window.location.href = 'text.html'; // 跳转到文本页面
+                }, 500); // 1秒后跳转
+            } else {
+                document.getElementById('feedback').innerText = '回答错误，请再试一次。';
+            }
+        }
+    </script>
+</body>
+</html>
